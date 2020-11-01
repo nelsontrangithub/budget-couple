@@ -30,10 +30,8 @@
     "eject": "react-scripts eject",
     "build:tailwind": "tailwindcss build src/index.css -o src/tailwind.output.css",
     "prestart": "npm run build:tailwind",
-    "prebuild": "npm run build:tailwind"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "prebuild": "npm run build:tailwind",
+    "lint": "eslint -c './.eslintrc' --fix './src/**/*.ts'"
   },
   "browserslist": {
     "production": [
