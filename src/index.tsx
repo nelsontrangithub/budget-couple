@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider } from 'styled-components';
 import './tailwind.output.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import GlobalStyle from './components/GlobalStyle';
+import { theme } from './constants/theme';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle/>
     <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
