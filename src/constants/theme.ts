@@ -1,22 +1,16 @@
 export const theme = {
-    colors: {
-      black: '#000000',
-      blue: '#041d59',
-      grey: {
-        light: '#f1f5f8',
-        default: '#6e7d95'
-      },
-      teal: {
-        light: '#00ebcb',
-        default: '#2ad9c2',
-        dark: '#00a1a7'
-      },
-      transparent: 'transparent',
-      white: '#ffffff'
+  colors: {
+    black: "#000000",
+    grey: {
+      light: "#f1f5f8",
+      default: "#6e7d95",
     },
-    extend: {},
-    container: {
-      center: true,
-      padding: '1rem'
-    }
-  };
+    olive: {
+      dark: "#043006",
+      light: "#42f56f",
+    },
+    transparent: "transparent",
+    white: "#ffffff",
+  },
+  extend: {},
+};

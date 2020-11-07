@@ -28,7 +28,7 @@ export const Slider: React.FC<Props> = ({
           style={{
             ...props.style,
           }}
-          className="rounded w-full bg-teal h-1"
+          className="rounded w-full bg-white h-1"
         >
           {children}
         </div>
