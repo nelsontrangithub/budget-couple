@@ -1,3 +1,7 @@
 import styled from "styled-components/macro";
 
-export const Input = styled.input`w-full bg-white shadow rounded leading-tight appearance-none p-3`;
+export const Input = styled.input`
+  width: 100%;
+  background-color: #fff;
+  padding: 0.75rem;
+`;

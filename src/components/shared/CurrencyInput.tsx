@@ -10,7 +10,7 @@ interface Props {
 export const CurrencyInput: React.FC<Props> = ({ onChange, value }) => {
   return (
     <div className="flex items-center">
-      <div className="bg-grey-light p-3 rounded-tl rounded-bl shadow leading-tight">$</div>
+      <div className="bg-gray-300 p-3 rounded-tl rounded-bl">$</div>
       <NumberFormat
         customInput={Input}
         allowNegative={false}
