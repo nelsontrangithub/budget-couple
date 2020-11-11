@@ -1,7 +1,12 @@
 import React from "react";
 import { useBudgetContext } from "./provider/BudgetContextProvider";
+import { Input } from "./shared/Input";
 import Label from "./shared/Label";
 import { Row } from "./shared/Row";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import CurrencyInput from "./shared/CurrencyInput";
 
 export const Expenses: React.FC = () => {
   const { incomes, expenses } = useBudgetContext();
@@ -13,6 +18,28 @@ export const Expenses: React.FC = () => {
         <Label className="w-7/12 px-2">Description</Label>
         <Label className="w-4/12 px-2 text-right mr-auto">Cost</Label>
       </Row>
+      {Object.values(expenses)
+        .sort()
+        .map((expense) => (
+          <Row key={expense.name}>
+            <div className="w-7/12 px-2">
+              <Input name="name" onChange={(e) => {}} value={expense.name} />
+            </div>
+            <div className="w-4/12 px-2">
+              <CurrencyInput onChange={(values) => {}} value={expense.cost.toString()} />
+            </div>
+            <div className="w-1/12 px-1">
+              {Object.keys(expenses).length > 1 && (
+                <button title="Delete expense" onClick={() => {}}>
+                  <FontAwesomeIcon
+                    icon={faTrashAlt}
+                    className="text-teal fill-current w-4 h-4 hover:text-teal-light"
+                  />
+                </button>
+              )}
+            </div>
+          </Row>
+        ))}
     </>
   );
 };
