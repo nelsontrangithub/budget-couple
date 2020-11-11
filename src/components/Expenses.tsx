@@ -10,14 +10,16 @@ import CurrencyInput from "./shared/CurrencyInput";
 import { Button } from "./shared/Button";
 
 export const Expenses: React.FC = () => {
-  const { incomes, expenses } = useBudgetContext();
+  const { expenses } = useBudgetContext();
 
   return (
     <>
       <h3 className="text-white text-2xl font-normal mb-4`">Monthly Expenses</h3>
       <Row>
-        <Label className="w-7/12 px-2">Description</Label>
-        <Label className="w-4/12 px-2 text-right mr-auto">Cost</Label>
+        <Label className="w-6/12 sm:w-7/12 px-1 text-white">Description</Label>
+        <Label className="w-5/12 sm:w-4/12 px-1 mr-auto text-right text-white uppercase text-xs font-bold">
+          Cost
+        </Label>
       </Row>
       {Object.values(expenses)
         .sort()
