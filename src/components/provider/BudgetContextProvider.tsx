@@ -9,16 +9,24 @@ const defaultIncomes = {
 
 const defaultExpenses = {
   Netflix: {
+    id: uuidv4(),
     name: "Netflix",
     cost: 10.99,
   },
   Electricity: {
+    id: uuidv4(),
     name: "Electricity",
     cost: 30.0,
   },
   Cellular: {
+    id: uuidv4(),
     name: "Cellular",
     cost: 50.0,
+  },
+  Groceries: {
+    id: uuidv4(),
+    name: "Groceries",
+    cost: 200.0,
   },
 };
 

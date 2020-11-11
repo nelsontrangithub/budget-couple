@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import CurrencyInput from "./shared/CurrencyInput";
+import { Button } from "./shared/Button";
 
 export const Expenses: React.FC = () => {
   const { incomes, expenses } = useBudgetContext();
@@ -40,6 +41,13 @@ export const Expenses: React.FC = () => {
             </div>
           </Row>
         ))}
+      <Button
+        onClick={() => {}}
+        className="rounded py-2 px-4 bg-teal no-underline text-blue border-2 border-transparent hover:bg-teal-light"
+      >
+        <FontAwesomeIcon icon={faPlus} className="text-teal fill-current w-3 h-3 mr-1" />
+        Add expense
+      </Button>
     </>
   );
 };
