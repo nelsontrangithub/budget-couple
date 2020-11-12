@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
-import { css, cx } from 'emotion';
+import React from "react";
+import { cx } from "emotion";
 import styles from '../styles/Home.module.scss';
 import { Header } from './Header';
 import Column from './shared/Column';
 import { Incomes } from './Incomes';
 import { BudgetContextProvider } from './provider/BudgetContextProvider';
 import { Expenses } from "./Expenses";
+import { SplitOptions } from "./SplitOptions";
 
 export const Home: React.FC = () => {
   return (
@@ -23,7 +24,11 @@ export const Home: React.FC = () => {
             <Incomes />
             <Expenses />
           </Column>
-          <Column></Column>
+          <Column>
+            <div className="bg-white rounded-lg shadow p-4 lg:p-8 mb-8">
+              <SplitOptions />
+            </div>
+          </Column>
         </main>
       </div>
     </BudgetContextProvider>

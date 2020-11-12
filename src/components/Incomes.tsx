@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useBudgetContext } from "./provider/BudgetContextProvider";
 import CurrencyInput from "./shared/CurrencyInput";
 import Label from './shared/Label';
@@ -25,7 +25,7 @@ export const Incomes: React.FC<Props> = ({}) => {
             </Row>
             <Row>
               <div className="w-6/12 sm:w-7/12 px-2">
-                <Slider onChange={(values) => {}} value={income.value} disabled={false} />
+                <Slider onChange={() => {}} value={income.value} disabled={false} />
               </div>
               <div className="w-5/12 sm:w-4/12 px-2 mr-auto">
                 <CurrencyInput
