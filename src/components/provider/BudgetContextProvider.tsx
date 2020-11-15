@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Expense, Income } from "./types";
 
@@ -46,6 +46,10 @@ export const BudgetContextProvider: React.FC<Props> = ({
 }) => {
   const [incomes, setIncomes] = useState(defaultIncomes);
   const [expenses, setExpenses] = useState(defaultExpenses);
+
+  const handleIncomeChange = useCallback(() => {}, []);
+
+  const handleExpenseChange = useCallback(() => {}, []);
 
   const contextValue: BudgetContextProperties = {
     incomes,
