@@ -1,5 +1,6 @@
 import React from "react";
 import { OPTIONS } from "../constants/options";
+import Chart from "./Chart";
 import RadioInput from "./shared/RadioInput";
 
 export const SplitOptions: React.FC = () => {
@@ -14,7 +15,9 @@ export const SplitOptions: React.FC = () => {
             </li>
           ))}
         </ul>
-        <div className="w-1/3 px-2">{/* <Chart /> */}</div>
+        <div className="w-1/3 px-2">
+          <Chart />
+        </div>
       </div>
     </>
   );
