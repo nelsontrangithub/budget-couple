@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
 import { ReactComponent as Logo } from '../logo.svg';
 
+const NonAuthNavigation: React.FC = () => {
+  return null;
+};
+
 export const Header: React.FC = () => {
   return (
     <header className="mb-4 lg:mb-8 flex items-center justify-between">

@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { OptionValue } from "../../constants/options";
 import { Expense, Income } from "./types";
 
 const defaultIncomes = {
@@ -46,6 +47,7 @@ export const BudgetContextProvider: React.FC<Props> = ({
 }) => {
   const [incomes, setIncomes] = useState(defaultIncomes);
   const [expenses, setExpenses] = useState(defaultExpenses);
+  const [splitOption, setSplitOption] = useState<OptionValue>(OptionValue.Income);
 
   const handleIncomeChange = useCallback(() => {}, []);
 
@@ -55,11 +57,7 @@ export const BudgetContextProvider: React.FC<Props> = ({
     incomes,
     expenses,
   };
-  return (
-    <BudgetContext.Provider value={contextValue}>
-      {children}
-    </BudgetContext.Provider>
-  );
+  return <BudgetContext.Provider value={contextValue}>{children}</BudgetContext.Provider>;
 };
 
 export const useBudgetContext = (): BudgetContextProperties => {

@@ -4,6 +4,12 @@ export type Option = {
   description: string;
 };
 
+export enum OptionValue {
+  Income = "income",
+  Half = "half",
+  Custom = "custom",
+}
+
 export const OPTIONS: Option[] = [
   {
     name: "Based on income",

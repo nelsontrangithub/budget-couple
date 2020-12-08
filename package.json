@@ -24,6 +24,7 @@
     "classnames": "^2.2.6",
     "dinero.js": "^1.8.1",
     "emotion": "^10.0.27",
+    "firebase": "^8.1.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
