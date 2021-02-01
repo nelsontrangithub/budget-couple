@@ -3,9 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 import { OptionValue } from "../../constants/options";
 import { Expense, Income } from "./types";
 
+export enum Couple {
+  You = "You",
+  Partner = "Partner",
+}
+
 const defaultIncomes = {
-  You: { name: "You", value: 35000 },
-  Partner: { name: "Partner", value: 75000 },
+  You: { name: Couple.You, value: 35000 },
+  Partner: { name: Couple.Partner, value: 75000 },
 };
 
 const defaultExpenses = {
@@ -36,6 +41,7 @@ interface Props {}
 export type BudgetContextProperties = {
   incomes: Record<string, Income>;
   expenses: Record<string, Expense>;
+  handleIncomeChange: (couple: Couple, value: number) => void;
 };
 
 const BudgetContext = createContext<
@@ -49,13 +55,28 @@ export const BudgetContextProvider: React.FC<Props> = ({
   const [expenses, setExpenses] = useState(defaultExpenses);
   const [splitOption, setSplitOption] = useState<OptionValue>(OptionValue.Income);
 
-  const handleIncomeChange = useCallback(() => {}, []);
+  const handleIncomeChange = useCallback(
+    (couple: Couple, value: number) => {
+      setIncomes((s) => {
+        const newstate = { ...s };
+
+        newstate[couple] = {
+          ...s[couple],
+          value,
+        };
+
+        return newstate;
+      });
+    },
+    [setIncomes],
+  );
 
   const handleExpenseChange = useCallback(() => {}, []);
 
   const contextValue: BudgetContextProperties = {
     incomes,
     expenses,
+    handleIncomeChange,
   };
   return <BudgetContext.Provider value={contextValue}>{children}</BudgetContext.Provider>;
 };

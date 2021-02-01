@@ -8,8 +8,9 @@ import { Slider } from './shared/Slider';
 interface Props {}
 
 export const Incomes: React.FC<Props> = ({}) => {
-  const { incomes } = useBudgetContext();
+  const { incomes, handleIncomeChange } = useBudgetContext();
 
+  console.log(incomes);
   return (
     <>
       <h3 className="text-white text-2xl font-normal mt-8 mb-6">Annual Income</h3>
@@ -25,13 +26,15 @@ export const Incomes: React.FC<Props> = ({}) => {
             </Row>
             <Row>
               <div className="w-6/12 sm:w-7/12 px-2">
-                <Slider onChange={() => {}} value={income.value} disabled={false} />
+                <Slider
+                  onChange={(values) => handleIncomeChange(income.name, values[0])}
+                  value={income.value}
+                  disabled={false}
+                />
               </div>
               <div className="w-5/12 sm:w-4/12 px-2 mr-auto">
                 <CurrencyInput
-                  onChange={(values) => {
-                    console.log(values);
-                  }}
+                  onChange={(values) => handleIncomeChange(income.name, parseFloat(values.value))}
                   value={income.value.toString()}
                 />
               </div>
