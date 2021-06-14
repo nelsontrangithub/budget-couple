@@ -1,5 +1,7 @@
+import { Couple } from "./BudgetContextProvider";
+
 export type Income = {
-  name: string;
+  name: Couple;
   value: number;
 };
 
