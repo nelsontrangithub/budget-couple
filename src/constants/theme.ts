@@ -6,8 +6,8 @@ export const theme = {
       default: "#6e7d95",
     },
     olive: {
-      dark: "#043006",
-      light: "#42f56f",
+      dark: "#6441a5",
+      light: "#aa92d4",
     },
     transparent: "transparent",
     white: "#ffffff",

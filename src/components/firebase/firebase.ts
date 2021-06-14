@@ -13,3 +13,28 @@ const config = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
+
+class Firebase {
+  auth: typeof app.auth;
+  authFn: app.auth.Auth;
+  db: typeof app.database;
+  dbFn: app.database.Database;
+
+  constructor() {
+    app.initializeApp(config);
+    app.analytics();
+
+    this.auth = app.auth;
+    this.authFn = app.auth();
+    this.db = app.database;
+    this.dbFn = app.database();
+  }
+
+  user = (uid: string) => this.dbFn.ref(`users/${uid}`);
+  key = () => this.dbFn.ref().push().key;
+  timestamp = () => this.db.ServerValue.TIMESTAMP;
+  signOut = () => this.authFn.signOut();
+  // onAuthStateChanged = (authUser: app.User | null) => this.authFn.onAuthStateChanged(authUser: unknown);
+}
+
+export default Firebase;
