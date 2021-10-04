@@ -42,17 +42,14 @@ export type BudgetContextProperties = {
   incomes: Record<string, Income>;
   expenses: Record<string, Expense>;
   handleIncomeChange: (couple: Couple, value: number) => void;
+  handleAddExpense: () => void;
 };
 
-const BudgetContext = createContext<
-  BudgetContextProperties | undefined
->(undefined);
+const BudgetContext = createContext<BudgetContextProperties | undefined>(undefined);
 
-export const BudgetContextProvider: React.FC<Props> = ({
-  children,
-}) => {
+export const BudgetContextProvider: React.FC<Props> = ({ children }) => {
   const [incomes, setIncomes] = useState(defaultIncomes);
-  const [expenses, setExpenses] = useState(defaultExpenses);
+  const [expenses, setExpenses] = useState<Record<string, Expense>>(defaultExpenses);
   const [splitOption, setSplitOption] = useState<OptionValue>(OptionValue.Income);
 
   const handleIncomeChange = useCallback(
@@ -73,10 +70,23 @@ export const BudgetContextProvider: React.FC<Props> = ({
 
   const handleExpenseChange = useCallback(() => {}, []);
 
+  const handleAddExpense = useCallback(() => {
+    setExpenses((s) => {
+      const newState = { ...s };
+      newState[" "] = {
+        id: uuidv4(),
+        name: "",
+        cost: 0,
+      };
+      return newState;
+    });
+  }, []);
+
   const contextValue: BudgetContextProperties = {
     incomes,
     expenses,
     handleIncomeChange,
+    handleAddExpense,
   };
   return <BudgetContext.Provider value={contextValue}>{children}</BudgetContext.Provider>;
 };

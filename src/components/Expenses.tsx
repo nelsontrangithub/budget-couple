@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useBudgetContext } from "./provider/BudgetContextProvider";
 import { Input } from "./shared/Input";
 import Label from "./shared/Label";
@@ -10,7 +10,7 @@ import CurrencyInput from "./shared/CurrencyInput";
 import { Button } from "./shared/Button";
 
 export const Expenses: React.FC = () => {
-  const { expenses } = useBudgetContext();
+  const { expenses, handleAddExpense } = useBudgetContext();
 
   return (
     <>
@@ -44,7 +44,7 @@ export const Expenses: React.FC = () => {
           </Row>
         ))}
       <Button
-        onClick={() => {}}
+        onClick={handleAddExpense}
         className="rounded py-2 px-4 bg-teal no-underline text-blue border-2 border-transparent hover:bg-teal-light"
       >
         <FontAwesomeIcon icon={faPlus} className="text-teal fill-current w-3 h-3 mr-1" />

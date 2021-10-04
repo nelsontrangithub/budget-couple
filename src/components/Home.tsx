@@ -1,10 +1,10 @@
 import React from "react";
 import { cx } from "emotion";
-import styles from '../styles/Home.module.scss';
-import { Header } from './Header';
-import Column from './shared/Column';
-import { Incomes } from './Incomes';
-import { BudgetContextProvider } from './provider/BudgetContextProvider';
+import styles from "../styles/Home.module.scss";
+import { Header } from "./Header";
+import Column from "./shared/Column";
+import { Incomes } from "./Incomes";
+import { BudgetContextProvider } from "./provider/BudgetContextProvider";
 import { Expenses } from "./Expenses";
 import { SplitOptions } from "./SplitOptions";
 
