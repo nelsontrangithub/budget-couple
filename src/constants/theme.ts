@@ -5,7 +5,7 @@ export const theme = {
       light: "#f1f5f8",
       default: "#6e7d95",
     },
-    olive: {
+    violet: {
       dark: "#6441a5",
       light: "#aa92d4",
     },
