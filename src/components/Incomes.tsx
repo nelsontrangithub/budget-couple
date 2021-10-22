@@ -1,16 +1,12 @@
 import React from "react";
 import { useBudgetContext } from "./provider/BudgetContextProvider";
 import CurrencyInput from "./shared/CurrencyInput";
-import Label from './shared/Label';
-import { Row } from './shared/Row';
-import { Slider } from './shared/Slider';
+import Label from "./shared/Label";
+import { Row } from "./shared/Row";
+import { Slider } from "./shared/Slider";
 
-interface Props {}
-
-export const Incomes: React.FC<Props> = ({}) => {
+export const Incomes: React.FC = ({}) => {
   const { incomes, handleIncomeChange } = useBudgetContext();
-
-  console.log(incomes);
   return (
     <>
       <h3 className="text-white text-2xl font-normal mt-8 mb-6">Annual Income</h3>

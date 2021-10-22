@@ -25,8 +25,8 @@ export const Expenses: React.FC = () => {
         .sort()
         .map((expense) => (
           <Row key={expense.name}>
-            <div className="w-7/12 px-2">
-              <Input name="name" onChange={(e) => {}} value={expense.name} />
+            <div className="w-7/12">
+              <Input className="rounded" name="name" onChange={(e) => {}} value={expense.name} />
             </div>
             <div className="w-4/12 px-2">
               <CurrencyInput onChange={(values) => {}} value={expense.cost.toString()} />
